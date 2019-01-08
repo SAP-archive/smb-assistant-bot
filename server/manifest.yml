@@ -1,0 +1,11 @@
+---
+applications:
+- name: smb-recast-bot
+  memory: 256m
+  instances: 1
+  env:
+    "B1_SL_BASE_URL": "https://SU-9304-31.emea.businessone.cloud.sap"
+    "B1_COMPANY_DB": "I805789_SU31"
+    "B1_USER_NAME": "CLOUD\\smbmktsa"
+    "B1_USER_PASSWORD": "Manager005"
+   
