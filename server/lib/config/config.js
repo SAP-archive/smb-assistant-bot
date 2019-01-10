@@ -18,15 +18,15 @@
 exports.ReturnBotSession = true;
 
 //b1 connection parameters
-exports.B1SLBaseUrl = process.env.B1_SL_BASE_URL || 'https://SU-9304-31.emea.businessone.cloud.sap';
-exports.B1CompanyDB = process.env.B1_COMPANY_DB || 'I805789_SU31';
-exports.B1UserName = process.env.B1_USER_NAME || 'CLOUD\\smbmktsa';
-exports.B1Password = process.env.B1_USER_PASSWORD || 'Manager005';
+exports.B1SLBaseUrl = process.env.B1_SL_BASE_URL;
+exports.B1CompanyDB = process.env.B1_COMPANY_DB;
+exports.B1UserName = process.env.B1_USER_NAME;
+exports.B1Password = process.env.B1_USER_PASSWORD;
 
 //byd connection parameters
-exports.ByDBaseUrl = process.env.BYD_BASE_URL || 'https://my343094.sapbydesign.com';
-exports.ByDUserName = process.env.BYD_USER_NAME || 'ADMINISTRATION01';
-exports.ByDPassword = process.env.BYD_USER_PASSWORD || 'Welcome1';
+exports.ByDBaseUrl = process.env.BYD_BASE_URL;
+exports.ByDUserName = process.env.BYD_USER_NAME;
+exports.ByDPassword = process.env.BYD_USER_PASSWORD;
 
 exports.getLoginUrl = function () {
     return exports.B1SLBaseUrl + '/b1s/v1/Login';
