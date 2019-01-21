@@ -4,8 +4,10 @@ applications:
   memory: 256m
   instances: 1
   env:
-    "B1_SL_BASE_URL": "https://SU-9304-31.emea.businessone.cloud.sap"
-    "B1_COMPANY_DB": "I805789_SU31"
-    "B1_USER_NAME": "CLOUD\\smbmktsa"
-    "B1_USER_PASSWORD": "Manager005"
-   
+    "B1_SL_BASE_URL": "<Your B1 SL Base URL>For example: https://hanab1:50000"
+    "B1_COMPANY_DB": "<Your B1 Company Schema>.For example: SBODEMOUS"
+    "B1_USER_NAME": "<Your B1 User Name>"
+    "B1_USER_PASSWORD": "<Your B1 User password>"
+    "BYD_BASE_URL": "<The base url of your ByD tenant>for example: https://myxxxxx.sapbydesign.com"
+    "BYD_USER_NAME": "<Your ByD User Name>"
+    "BYD_USER_PASSWORD": "<Your ByD User Password>" 

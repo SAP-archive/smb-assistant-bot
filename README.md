@@ -6,7 +6,7 @@ Here you have the video recordings about the PoC demos of smb-recast-bot.
 * [Sales Analysis demo based SAP Business One](https://youtu.be/mWy4Zu2zYG4)
 * [Sales Analysis demo based SAP Business ByDesign](https://youtu.be/D5ZK3hzDvlI)   
 
-In addition, this sample bot can be easily extended to accomodate other analytics question about delivery performance, purchasing, financial etc by adding new intents for analytics questions in [smb-recast-bot](https://recast.ai/yatseali/smb-recast-bot) and mapping configuration of intent to semantics in [intents_mapping](https://github.com/B1SA/smb-recast-bot/blob/master/server/lib/config/intents_mapping.js)
+In addition, this sample bot can be easily extended to accomodate other analytics question about delivery performance, purchasing, financial etc.Please refer to [this document](https://github.com/B1SA/smb-recast-bot/server/README.md).
 
 The transactional scenario such as placing an order, checking the delivery status etc is also possible through SAP Conversational AI(formerly recast.ai), Service Layer of SAP Business One and OData API of SAP Business ByDesign. However, you may refer to [SMB Market Place Assistant Bot](https://github.com/B1SA/smbmkt) for reference, as the transactional scenario is no part of this sample. 
 
@@ -240,7 +240,7 @@ then mapping the technical fields and view in the target system type.
 ### Generate the OData query to semantic layer of target system
 * SAP Business One, versionf for SAP HANA
 ```json
-https://<SeriviceLayerHost>/b1s/v1/sml.svc/SalesAnalysisQuery?$apply=groupby((BusinessPartnerNameAndCode),aggregate(NetSalesAmountLC with sum as NetSalesAmountLC,GrossProfitLC with sum as GrossProfitLC))&$top=5&$filter=(PostingYear eq '2018') and DocumentTypeGroup eq 'Order'&$orderby=NetSalesAmountLC desc
+https://<SeriviceLayerHost>:50000/b1s/v1/sml.svc/SalesAnalysisQuery?$apply=groupby((BusinessPartnerNameAndCode),aggregate(NetSalesAmountLC with sum as NetSalesAmountLC,GrossProfitLC with sum as GrossProfitLC))&$top=5&$filter=(PostingYear eq '2018') and DocumentTypeGroup eq 'Order'&$orderby=NetSalesAmountLC desc
 ```
 * SAP Business ByDesign
 ```json
@@ -250,6 +250,7 @@ https://<byd_tenant>.sapbydesign.com/sap/byd/odata/cc_home_analytics.svc/RPZ1E09
 ### Final message reply to the chatbot
 * SAP Business One, versionf for SAP HANA<br/>
 <img src="https://i.imgur.com/MaiedEb.png" alt="b1 reply result" width="200" />
+
 ```json
 {
   "replies": [
@@ -295,6 +296,7 @@ https://<byd_tenant>.sapbydesign.com/sap/byd/odata/cc_home_analytics.svc/RPZ1E09
 
 * SAP Business ByDesign<br/>
 <img src="https://i.imgur.com/aJMrtzZ.png" alt="b1 reply result" width="200" />
+
 ```json
 {
   "replies": [
@@ -337,6 +339,9 @@ https://<byd_tenant>.sapbydesign.com/sap/byd/odata/cc_home_analytics.svc/RPZ1E09
   ]
 }
 ```
+
+## How to run and extend this sample project
+Please refer to [this document](https://github.com/B1SA/smb-recast-bot/server/README.md).
 
 ## License:
 This smb-recast-bot probject is subject to [MIT LICENSE](https://github.com/B1SA/smb-recast-bot/LICENSE).Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Therefore no support available. All rights reserved by SAP SE.
