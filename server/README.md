@@ -8,7 +8,7 @@ Here you [the overview introduction of smb-recast-bot](https://github.com/B1SA/s
 ## How to run this sample smb-recast-bot?
 Before setting up this sample chatbot project on your own, it is recommended to go through [the overview introduction of smb-recast-bot](https://github.com/B1SA/smb-recast-bot/)
 
-### Prerequisitives
+### Prerequisites
 * Go through [the overview introduction of smb-recast-bot](https://github.com/B1SA/smb-recast-bot/) to understand the scenario, architecture and process flow.
 * SAP Business One 9.3, version for SAP HANA(or higher) or SAP Business ByDesign 1811(or higher). And the analytics of the target company schema has been initialised. Please refer to [this blog](https://blogs.sap.com/2015/08/31/initializing-b1h-company-databases-for-analytical-features/).
 * You have registered a developer account on [SAP Converstaional AI](https://recast.ai)
@@ -16,7 +16,7 @@ Before setting up this sample chatbot project on your own, it is recommended to 
   * Option 1 - Cloud Foundry:
   <br/>You have registered a trial or enterprise account of SAP Clout Platform Cloud Foundry. Please follow this [tutorial](https://developers.sap.com/australia/tutorials/hcp-cf-getting-started.html) about getting started with SAP Clout Platform Cloud Foundry. 
   * Option 2 - Local Server: 
-  <br/>Or you have a server with NodeJS 6.0(or above) install, where the smb-recast-server is deployed and running.
+  <br/>Or you have a server with NodeJS 6.0(or above) installed, where the smb-recast-server is deployed and running.
 * (Only applicable for Cloud Foundry option)You have downloaded and installed [the Command Line interface of Cloud Foundry](https://developers.sap.com/australia/tutorials/hcp-cf-getting-started.html#b80b6511-aee6-493b-9faf-01e9ffb2a8fb) on your development machine, which will be used to deploy the smb-recast-bot server app into Cloud Foudnry.
 
 ### Part 1-ERP Configuration

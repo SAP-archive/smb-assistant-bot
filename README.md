@@ -86,7 +86,7 @@ Composed of the following components
 Take the following example:
 <br>User input: "Who are my top 5 customers in 2018"
 
-### Nature Language Processing by SAP Conversational AI
+### 1.Nature Language Processing by SAP Conversational AI
 <img src="https://i.imgur.com/kWk9Uia.png" alt="nlp result" width="200" />
 <br/>The following entities are customised in sales-analysis intent.
 
@@ -157,7 +157,7 @@ Take the following example:
 }
 ```
 
-### Convert to semantic model of target system by parser
+### 2.Convert the nlp result to semantic model of target system by parser
 First the parser finds the entity mapping to the abstract model with [fuzzy search](http://fusejs.io/),
 then mapping the technical fields and view in the target system type.
 
@@ -237,7 +237,9 @@ then mapping the technical fields and view in the target system type.
   }
 }
 ```
-### Generate the OData query to semantic layer of target system
+### 3.Generate the OData query to semantic layer of target system
+The OData query will be generated dynamically on the flight according to the parsed result of mapping between nlp and semantics.
+
 * SAP Business One, version for SAP HANA
 ```json
 https://<SeriviceLayerHost>:50000/b1s/v1/sml.svc/SalesAnalysisQuery?$apply=groupby((BusinessPartnerNameAndCode),aggregate(NetSalesAmountLC with sum as NetSalesAmountLC,GrossProfitLC with sum as GrossProfitLC))&$top=5&$filter=(PostingYear eq '2018') and DocumentTypeGroup eq 'Order'&$orderby=NetSalesAmountLC desc
@@ -246,8 +248,51 @@ https://<SeriviceLayerHost>:50000/b1s/v1/sml.svc/SalesAnalysisQuery?$apply=group
 ```json
 https://<byd_tenant>.sapbydesign.com/sap/byd/odata/cc_home_analytics.svc/RPZ1E0943C634B1218DA2EAB7QueryResults?$format=json&$select=TCUSTOMER,KCNETSALES,KCGROSSPROFIT&$top=5&$filter=(CYEAR eq '2018')&$orderby=KCNETSALES desc
 ```
+### 4.OData query to the target system
+* SAP Business One, version for SAP HANA<br/>
+  The analytics webhook will query the target view in semantic layer through service layer.<br/>
+  The sample result in json format:
+  ```json
+  {
+      "@odata.context": "$metadata#SalesAnalysisQuery(BusinessPartnerNameAndCode,NetSalesAmountLC,GrossProfitLC)",
+      "value": [
+          {
+              "BusinessPartnerNameAndCode": "Maxi-Teq (C20000)",
+              "NetSalesAmountLC": 27459,
+              "GrossProfitLC": -15869.56
+          },
+          {
+              "BusinessPartnerNameAndCode": "One Time Customer (C99999)",
+              "NetSalesAmountLC": 2100,
+              "GrossProfitLC": 1198.99
+          }
+      ]
+  }
+  ```
 
-### Final message reply to the chatbot
+* SAP Business ByDesign<br/>
+  The analytics webhook will query the report or data source of SAP Business ByDesign via OData.<br/>
+  The sample result in json format:
+  ```json
+  {
+    "d": {
+      "__count": "13",
+      "results": [
+        {
+          "__metadata": {
+            "uri": "https://myxxxxxx.sapbydesign.com/sap/byd/odata/ana_businessanalytics_analytics.svc/RPZ1E0943C634B1218DA2EAB7QueryResults('%7CCCUSTOMER%3DCP100110%7CCYEAR%3D2018%7C')",
+            "type": "sapbyd.RPZ1E0943C634B1218DA2EAB7QueryResult"
+          },
+          "CCUSTOMER": "CP100110",
+          "CYEAR": "2018",
+          "KCNETSALES": "727951.180000"
+        }
+      ]
+    }
+  }
+  ```
+
+### 5.Format the final message reply to the chatbot
 * SAP Business One, version for SAP HANA<br/>
 <img src="https://i.imgur.com/MaiedEb.png" alt="b1 reply result" width="200" />
 
