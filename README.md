@@ -1,12 +1,12 @@
 # SAP SMB Assistant Bot powered by SAP Conversational AI(recast.ai)
 ## Overview
-This sample executive virtual assistant [smb-recast-bot](https://recast.ai/yatseali/smb-recast-bot) serves the executive about the executive analytics question through conversation, powered by [SAP Conversational AI](https://recast.ai/)(formerly as recast.ai) for SAP Business One and SAP Business ByDesign systems. Precisely, the sales analysis through conversation is implemented in this sample. 
+This is a sample executive virtual assistant [smb-recast-bot](https://recast.ai/yatseali/smb-recast-bot) which can serves the CXOs about the executive-level analytics question through conversation, powered by [SAP Conversational AI](https://recast.ai/)(formerly as recast.ai) for SAP Business One and SAP Business ByDesign systems. Precisely, the sales analysis through conversation is implemented in this sample. 
 
 Here you have the video recordings about the PoC demos of smb-recast-bot.
 * [Sales Analysis demo based SAP Business One](https://youtu.be/mWy4Zu2zYG4)
 * [Sales Analysis demo based SAP Business ByDesign](https://youtu.be/D5ZK3hzDvlI)   
 
-In addition, this sample bot can be easily extended to accomodate other analytics question about delivery performance, purchasing, financial etc.Please refer to [this document](https://github.com/B1SA/smb-recast-bot/server/README.md).
+In addition, this sample bot can be easily extended to accomodate other analytics question about delivery performance, purchasing, financial etc.Please refer to [this document](https://github.com/B1SA/smb-recast-bot/blob/master/server/README.md).
 
 The transactional scenario such as placing an order, checking the delivery status etc is also possible through SAP Conversational AI(formerly recast.ai), Service Layer of SAP Business One and OData API of SAP Business ByDesign. However, you may refer to [SMB Market Place Assistant Bot](https://github.com/B1SA/smbmkt) for reference, as the transactional scenario is no part of this sample. 
 
@@ -161,7 +161,7 @@ Take the following example:
 First the parser finds the entity mapping to the abstract model with [fuzzy search](http://fusejs.io/),
 then mapping the technical fields and view in the target system type.
 
-* SAP Business One, versionf for SAP HANA
+* SAP Business One, version for SAP HANA
 ```json
 {
   "Intent": "sales-analysis",
@@ -238,7 +238,7 @@ then mapping the technical fields and view in the target system type.
 }
 ```
 ### Generate the OData query to semantic layer of target system
-* SAP Business One, versionf for SAP HANA
+* SAP Business One, version for SAP HANA
 ```json
 https://<SeriviceLayerHost>:50000/b1s/v1/sml.svc/SalesAnalysisQuery?$apply=groupby((BusinessPartnerNameAndCode),aggregate(NetSalesAmountLC with sum as NetSalesAmountLC,GrossProfitLC with sum as GrossProfitLC))&$top=5&$filter=(PostingYear eq '2018') and DocumentTypeGroup eq 'Order'&$orderby=NetSalesAmountLC desc
 ```
@@ -248,7 +248,7 @@ https://<byd_tenant>.sapbydesign.com/sap/byd/odata/cc_home_analytics.svc/RPZ1E09
 ```
 
 ### Final message reply to the chatbot
-* SAP Business One, versionf for SAP HANA<br/>
+* SAP Business One, version for SAP HANA<br/>
 <img src="https://i.imgur.com/MaiedEb.png" alt="b1 reply result" width="200" />
 
 ```json
@@ -341,7 +341,7 @@ https://<byd_tenant>.sapbydesign.com/sap/byd/odata/cc_home_analytics.svc/RPZ1E09
 ```
 
 ## How to run and extend this sample project
-Please refer to [this document](https://github.com/B1SA/smb-recast-bot/server/README.md).
+Please refer to [this document](https://github.com/B1SA/smb-recast-bot/blob/master/server/README.md).
 
 ## License:
 This smb-recast-bot probject is subject to [MIT LICENSE](https://github.com/B1SA/smb-recast-bot/LICENSE).Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Therefore no support available. All rights reserved by SAP SE.
