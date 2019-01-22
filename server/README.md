@@ -10,7 +10,7 @@ Before setting up this sample chatbot project on your own, it is recommended to 
 
 ### Prerequisitives
 * Go through [the overview introduction of smb-recast-bot](https://github.com/B1SA/smb-recast-bot/) to understand the scenario, architecture and process flow.
-* SAP Business One 9.3, version for SAP HANA(or higher) or SAP Business ByDesign 1811(or higher)
+* SAP Business One 9.3, version for SAP HANA(or higher) or SAP Business ByDesign 1811(or higher). And the analytics of the target company schema has been initialised. Please refer to [this blog](https://blogs.sap.com/2015/08/31/initializing-b1h-company-databases-for-analytical-features/).
 * You have registered a developer account on [SAP Converstaional AI](https://recast.ai)
 * A server with NodeJS run-time for running smb-recast-bot.
   * Option 1 - Cloud Foundry:
