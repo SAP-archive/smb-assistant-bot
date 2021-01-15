@@ -1,27 +1,27 @@
 # SAP SMB Assistant Bot powered by SAP Conversational AI(recast.ai)
 This document focuse on: 
-* [How to run this smb-recast-bot?](#How-to-run-this-sample-smb-recast-bot?)
-* [How to extend the smb-recast-bot?](#How-to-extend-the-smb-recast-bot?)
-* [How to localize the smb-recast-bot?](https://blogs.sap.com/2019/07/03/how-to-localize-smb-recast-bot/)
+* [How to run this smb-assistant-bot?](#How-to-run-this-sample-smb-assistant-bot?)
+* [How to extend the smb-assistant-bot?](#How-to-extend-the-smb-assistant-bot?)
+* [How to localize the smb-assistant-bot?](https://blogs.sap.com/2019/07/03/how-to-localize-smb-recast-bot/)
 
-Here you [the overview introduction of smb-recast-bot](https://github.com/B1SA/smb-recast-bot/) about the scenario, architecture and process flow.
+Here you [the overview introduction of smb-assistant-bot](https://github.com/B1SA/smb-assistant-bot/) about the scenario, architecture and process flow.
 
-## How to run this sample smb-recast-bot?
-Before setting up this sample chatbot project on your own, it is recommended to go through [the overview introduction of smb-recast-bot](https://github.com/B1SA/smb-recast-bot/)
+## How to run this sample smb-assistant-bot?
+Before setting up this sample chatbot project on your own, it is recommended to go through [the overview introduction of smb-assistant-bot](https://github.com/B1SA/smb-assistant-bot/)
 
 ### Prerequisites
-* Go through [the overview introduction of smb-recast-bot](https://github.com/B1SA/smb-recast-bot/) to understand the scenario, architecture and process flow.
+* Go through [the overview introduction of smb-assistant-bot](https://github.com/B1SA/smb-assistant-bot/) to understand the scenario, architecture and process flow.
 * SAP Business One 9.3, version for SAP HANA(or higher) or SAP Business ByDesign 1811(or higher). And the analytics of the target company schema has been initialised. Please refer to [this blog](https://blogs.sap.com/2015/08/31/initializing-b1h-company-databases-for-analytical-features/).
 * You have registered a developer account on [SAP Converstaional AI](https://recast.ai)
-* A server with NodeJS run-time for running smb-recast-bot.
+* A server with NodeJS run-time for running smb-assistant-bot.
   * Option 1 - Cloud Foundry:
   <br/>You have registered a trial or enterprise account of SAP Clout Platform Cloud Foundry. Please follow this [tutorial](https://developers.sap.com/australia/tutorials/hcp-cf-getting-started.html) about getting started with SAP Clout Platform Cloud Foundry. 
   * Option 2 - Local Server: 
   <br/>Or you have a server with NodeJS 6.0(or above) installed, where the smb-recast-server is deployed and running.
-* (Only applicable for Cloud Foundry option)You have downloaded and installed [the Command Line interface of Cloud Foundry](https://developers.sap.com/australia/tutorials/hcp-cf-getting-started.html#b80b6511-aee6-493b-9faf-01e9ffb2a8fb) on your development machine, which will be used to deploy the smb-recast-bot server app into Cloud Foudnry.
+* (Only applicable for Cloud Foundry option)You have downloaded and installed [the Command Line interface of Cloud Foundry](https://developers.sap.com/australia/tutorials/hcp-cf-getting-started.html#b80b6511-aee6-493b-9faf-01e9ffb2a8fb) on your development machine, which will be used to deploy the smb-assistant-bot server app into Cloud Foudnry.
 
 ### Part 1-ERP Configuration
-To answer the analytics questions, smb-recast-bot server queries the semantic layer of SAP Business One, version for SAP HANA through Server Layer(OData) and the datasource or reports in SAP Business ByDesgin Analytics via OData. Therefore, Please follow the steps below to enable these analytic queries accessible via OData. 
+To answer the analytics questions, smb-assistant-bot server queries the semantic layer of SAP Business One, version for SAP HANA through Server Layer(OData) and the datasource or reports in SAP Business ByDesgin Analytics via OData. Therefore, Please follow the steps below to enable these analytic queries accessible via OData. 
 
 * #### SAP Business One, version for SAP HANA
 1. Open SAP HANA Model Management with the menu path: Administration -> Setup -> General
@@ -88,16 +88,16 @@ https://<tentant_id>.sapbydesign.com/sap/byd/odata/ana_businessanalytics_analyti
 }
 ```
 
-### Part 2-Deploy and run the smb-recast-bot server
-First of all, download the source code the smb-recast-bot server and change the directory to ./server with command:
+### Part 2-Deploy and run the smb-assistant-bot server
+First of all, download the source code the smb-assistant-bot server and change the directory to ./server with command:
 ```bash
-$ git clone https://github.com/B1SA/smb-recast-bot.git
+$ git clone https://github.com/B1SA/smb-assistant-bot.git
 $ cd server
 ``` 
 
 #### Option 1-Cloud Foundry, SAP Cloud Platform
-1. Edit the [./server/manifest.yml](https://github.com/B1SA/smb-recast-bot/blob/master/server/manifest.yml)  
-  * Replace the application name "smb-recast-bot" with "xxx-smb-recast-bot" (xxx stands for your company's namespace.)
+1. Edit the [./server/manifest.yml](https://github.com/B1SA/smb-assistant-bot/blob/master/server/manifest.yml)  
+  * Replace the application name "smb-assistant-bot" with "xxx-smb-assistant-bot" (xxx stands for your company's namespace.)
   * Configure the environment variables
     * "B1_SL_BASE_URL": "<Your B1 SL Base URL>For example: 
 https://hanab1:50000"
@@ -111,20 +111,20 @@ https://hanab1:50000"
 ```bash
 $ cf login
 ``` 
-3.  Deploy and the smb-recast-bot with command.
+3.  Deploy and the smb-assistant-bot with command.
 ```bash
 $ cf push
 ```
-4. Note down the app url after step 3, which will be used for configuring smb-recast-bot in SAP Conversational AI.
-<br/>for example: https://xxx-smb-recast-bot.cfapps.eu10.hana.ondemand.com (xxx stands for your commpany namespace in step 1)
+4. Note down the app url after step 3, which will be used for configuring smb-assistant-bot in SAP Conversational AI.
+<br/>for example: https://xxx-smb-assistant-bot.cfapps.eu10.hana.ondemand.com (xxx stands for your commpany namespace in step 1)
 as a result, the webhooks endpoints as below:
-    * sales-analytics intnet: https://xxx-smb-recast-bot.cfapps.eu10.hana.ondemand.com/webhooks/analytics 
+    * sales-analytics intnet: https://xxx-smb-assistant-bot.cfapps.eu10.hana.ondemand.com/webhooks/analytics 
   <br/>(Important: This is a generic analitcs endpoint which is applicable to all alnalytics intent)
     * login-erp intent:
-  https://xxx-smb-recast-bot.cfapps.eu10.hana.ondemand.com/webhooks/login
+  https://xxx-smb-assistant-bot.cfapps.eu10.hana.ondemand.com/webhooks/login
 
 #### Option 2-Deploy and run in a server
-1. Install the dependent nodejs modules for smb-recast-bot server
+1. Install the dependent nodejs modules for smb-assistant-bot server
    ```bash
    $ npm install
    ```
@@ -145,7 +145,7 @@ as a result, the webhooks endpoints as below:
       $ set B1_SL_BASE_URL=<Your B1 SL Base URL>For example: https://hanab1:50000
       ```
       Repeat for all the environment variables.
-  * Option 2-Through coding in [./lib/config/config.js](https://github.com/B1SA/smb-recast-bot/blob/master/server/lib/config/config.js).
+  * Option 2-Through coding in [./lib/config/config.js](https://github.com/B1SA/smb-assistant-bot/blob/master/server/lib/config/config.js).
     <br/>For example:
     ```javascript
     exports.B1SLBaseUrl = process.env.B1_SL_BASE_URL || 'https://<Your_SL_HOST>:50000';
@@ -155,7 +155,7 @@ as a result, the webhooks endpoints as below:
   ```bash
   $ node index.js
   ```
-4. Note down the url from step 3, which will be used for configuring smb-recast-bot in SAP Conversational AI.
+4. Note down the url from step 3, which will be used for configuring smb-assistant-bot in SAP Conversational AI.
 <br/>For example: https://[YOUR_SERVER]:59999 
 <br/>If your server is not public accessible, then you may download and use [ngrok](https://ngrok.com/download) to expose for public access with the command below:
 ```bash
@@ -173,37 +173,37 @@ The webhooks endpoints as below:
 * login-erp intent:
   https://xxxxx.ngrok.io/webhooks/login
 
-### Part 3-Configure the smb-recast-bot in SAP Conversational AI
-#### Fork the pretrained [smb-recast-bot](https://recast.ai/yatseali/smb-recast-bot) to your own account
+### Part 3-Configure the smb-assistant-bot in SAP Conversational AI
+#### Fork the pretrained [smb-assistant-bot](https://recast.ai/yatseali/smb-assistant-bot) to your own account
 1. Login to [SAP Conversational AI](https://recast.ai) with browser
-2. Open the pretrained [smb-recast-bot] (https://cai.tools.sap/yatseali/smb-recast-bot), then click "Fork" button on right top.
-<br/><a href="https://recast.ai/yatseali/smb-recast-bot"><img src="https://i.imgur.com/g3q2SCf.png"  alt="fork smb-recast-bot" width="400" /></a>
-<br/>Consequently, the pretrained [smb-recast-bot] is now forked to your account.
+2. Open the pretrained [smb-assistant-bot] (https://cai.tools.sap/yatseali/smb-assistant-bot), then click "Fork" button on right top.
+<br/><a href="https://recast.ai/yatseali/smb-assistant-bot"><img src="https://i.imgur.com/g3q2SCf.png"  alt="fork smb-assistant-bot" width="400" /></a>
+<br/>Consequently, the pretrained [smb-assistant-bot] is now forked to your account.
 
 #### Configure the action for the sales-analysis and login-erp intent
-1. Open your own smb-recast-bot, and select tab "Build"
+1. Open your own smb-assistant-bot, and select tab "Build"
 2. Click the sales-analysis intent 
 <img src="https://i.imgur.com/Z2VMqa3.png" alt="recast build" width="400" />
-3. Select the tab Action, click the change button to update the webhook url with urls in [part 2](#Part-2-Deploy-and-run-the-smb-recast-bot-server) for sales-analysis intent
+3. Select the tab Action, click the change button to update the webhook url with urls in [part 2](#Part-2-Deploy-and-run-the-smb-assistant-bot-server) for sales-analysis intent
 <br/><img src="https://i.imgur.com/fh6N7Le.png" alt="webhook" width="400" />
 4. Save the change.
 5. Repeat step 2~4 for login-erp intent.
 
-### Part 4-Test smb-recast-bot with web chat.
-Now we can test the smb-recast-bot with the built-in test chatbot function by simply click "CHAT WITH YOUR BOT" on the right bottom.
+### Part 4-Test smb-assistant-bot with web chat.
+Now we can test the smb-assistant-bot with the built-in test chatbot function by simply click "CHAT WITH YOUR BOT" on the right bottom.
 
-The smb-recast-bot server also provide a web chat, which can be accessed through url: https://[your smb-recast-bot server]/client/recast.html
-<br/>Here you have the video recordings about the PoC demos of smb-recast-bot.
+The smb-assistant-bot server also provide a web chat, which can be accessed through url: https://[your smb-assistant-bot server]/client/recast.html
+<br/>Here you have the video recordings about the PoC demos of smb-assistant-bot.
 * [Sales Analysis demo based SAP Business One](https://youtu.be/mWy4Zu2zYG4)
 * [Sales Analysis demo based SAP Business ByDesign](https://youtu.be/D5ZK3hzDvlI)
 
-## How to extend the smb-recast-bot?
+## How to extend the smb-assistant-bot?
 This sample bot can be easily extended to accomodate other analytics question about delivery performance, purchasing, financial etc
 by 
-* adding new intents and utterances for analytics questions in [smb-recast-bot](https://recast.ai/yatseali/smb-recast-bot). Please label the entities properly for #DIMENSION, #MEASURE, #FILTERBY, #LIMIT_NUMBER, #SORTING_DIRECTION as sales-analysis intent.
+* adding new intents and utterances for analytics questions in [smb-assistant-bot](https://recast.ai/yatseali/smb-assistant-bot). Please label the entities properly for #DIMENSION, #MEASURE, #FILTERBY, #LIMIT_NUMBER, #SORTING_DIRECTION as sales-analysis intent.
 
-* adding the mapping configuration of intent to semantics for new intent in [intents_mapping](https://github.com/B1SA/smb-recast-bot/blob/master/server/lib/config/intents_mapping.js)
+* adding the mapping configuration of intent to semantics for new intent in [intents_mapping](https://github.com/B1SA/smb-assistant-bot/blob/master/server/lib/config/intents_mapping.js)
 * configuring the same webhook url for the new analytics intent as sales-analysis intent.
 
 ## License:
-This smb-recast-bot probject is subject to [MIT LICENSE](https://github.com/B1SA/smb-recast-bot/LICENSE).Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Therefore no support available. All rights reserved by SAP SE.
+This smb-assistant-bot probject is subject to [APACHE 2.0 LICENSE](LICENSES/Apache-2.0.txt).Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Therefore no support available. All rights reserved by SAP SE.
