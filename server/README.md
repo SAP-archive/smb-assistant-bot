@@ -206,4 +206,4 @@ by
 * configuring the same webhook url for the new analytics intent as sales-analysis intent.
 
 ## License:
-This smb-assistant-bot probject is subject to [APACHE 2.0 LICENSE](LICENSES/Apache-2.0.txt).Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Therefore no support available. All rights reserved by SAP SE.
+This smb-assistant-bot probject is subject to [APACHE 2.0 LICENSE](../LICENSES/Apache-2.0.txt).Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Therefore no support available. All rights reserved by SAP SE.

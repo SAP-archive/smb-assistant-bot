@@ -1,13 +1,13 @@
 # SAP SMB Assistant Bot powered by SAP Conversational AI(recast.ai)
 ## Overview
-This is a sample executive virtual assistant [smb-recast-bot](https://cai.tools.sap/yatseali/smb-recast-bot) which can serves the CXOs about the executive-level analytics question through conversation, powered by [SAP Conversational AI](https://cai.tools.sap/)(formerly as recast.ai) for SAP Business One and SAP Business ByDesign systems. Precisely, the sales analysis through conversation is implemented in this sample. 
+This is a sample executive virtual assistant [smb-assistant-bot](https://cai.tools.sap/yatseali/smb-assistant-bot) which can serves the CXOs about the executive-level analytics question through conversation, powered by [SAP Conversational AI](https://cai.tools.sap/)(formerly as recast.ai) for SAP Business One and SAP Business ByDesign systems. Precisely, the sales analysis through conversation is implemented in this sample. 
 
-Here you have the video recordings about the PoC demos of smb-recast-bot.
+Here you have the video recordings about the PoC demos of smb-assistant-bot.
 * [A quick demo on Facebook Messenger](https://youtu.be/YHksguNVlMU)
 * [Sales Analysis demo based SAP Business One](https://youtu.be/mWy4Zu2zYG4)
 * [Sales Analysis demo based SAP Business ByDesign](https://youtu.be/D5ZK3hzDvlI)
 
-In addition, this sample bot can be easily extended to accomodate other analytics question about delivery performance, purchasing, financial etc.Please refer to [this document](https://github.com/B1SA/smb-recast-bot/blob/master/server/README.md).
+In addition, this sample bot can be easily extended to accomodate other analytics question about delivery performance, purchasing, financial etc.Please refer to [this document](https://github.com/B1SA/smb-assistant-bot/blob/master/server/README.md).
 
 The transactional scenario such as placing an order, checking the delivery status etc is also possible through SAP Conversational AI(formerly recast.ai), Service Layer of SAP Business One and OData API of SAP Business ByDesign. However, you may refer to [SMB Market Place Assistant Bot](https://github.com/B1SA/smbmkt) for reference, as the transactional scenario is no part of this sample. 
 
@@ -17,8 +17,8 @@ The transactional scenario such as placing an order, checking the delivery statu
 The architecture diagram above illustrate the following components
 * App/Bot: A self-service bot for end users on messing platform such as Facebook Messenger, Line, WhatsApp, WeChat etc, or a chatbot on web, or an application over the voice on a device, such as an Alexa skill.
 * [SAP Conversation AI](#SAP-Conversation-AI): A collaborative end-to-end bot platform for developers.
-* [smb-recast-bot](#smb-recast-bot): The webhook action of analytics questions. 
-* [ERP backend](#ERP-backend): In this sample, it supports SAP Business One, version for SAP HANA and SAP Business ByDesign. You can easily extend smb-recast-bot to support S4HANA etc by adding configuration to [intents_mapping.js](https://github.com/B1SA/smb-recast-bot/blob/master/server/lib/config/intents_mapping.js) and handle the login in the /webhooks/login and /webhooks/analytics endpoint in [index.js](https://github.com/B1SA/smb-recast-bot/blob/master/server/index.js).  
+* [smb-assistant-bot](#smb-assistant-bot): The webhook action of analytics questions. 
+* [ERP backend](#ERP-backend): In this sample, it supports SAP Business One, version for SAP HANA and SAP Business ByDesign. You can easily extend smb-assistant-bot to support S4HANA etc by adding configuration to [intents_mapping.js](https://github.com/B1SA/smb-assistant-bot/blob/master/server/lib/config/intents_mapping.js) and handle the login in the /webhooks/login and /webhooks/analytics endpoint in [index.js](https://github.com/B1SA/smb-assistant-bot/blob/master/server/index.js).  
 
 ### [SAP Conversation AI](https://cai.tools.sap/)
 <a href="https://cai.tools.sap/"><img src="https://i.imgur.com/mKxXnBu.png"  alt="recast" width="400" /></a>
@@ -36,11 +36,11 @@ More Userful resources:
  Get started with [Build your first bot with Recast.AI](https://cai.tools.sap/blog/build-your-first-bot-with-recast-ai/) to understand the procedure of creating a bot with SAP Conversational AI
 * [API References](https://cai.tools.sap/docs/api-reference/)
 
-### smb-recast-bot
+### smb-assistant-bot
 Composed of the following components
-* [smb-recast-bot](https://cai.tools.sap/yatseali/smb-recast-bot) in SAP Conversation AI
+* [smb-assistant-bot](https://cai.tools.sap/yatseali/smb-assistant-bot) in SAP Conversation AI
 <br/>The trained intents
-    * [sales-analysis intent](https://cai.tools.sap/yatseali/smb-recast-bot/train/intents/sales-analysis)
+    * [sales-analysis intent](https://cai.tools.sap/yatseali/smb-assistant-bot/train/intents/sales-analysis)
 <br/>Sample questions of sales-analysis intent:
         * "How is my sales status for this quarter?"
         * "Give me the monthly sales report for 2018"
@@ -48,14 +48,14 @@ Composed of the following components
         * "Who contributes the most profits for 2018?"
         * "What are the top 5 best-sellers for 2018?"
         <br/>......
-    * [login-erp intent](https://cai.tools.sap/yatseali/smb-recast-bot/train/intents/login-erp)
-<br/>Login to different ERP system such as SAP Business One, version for SAP HANA and SAP Business ByDesign, which is configured in [config.js](https://github.com/B1SA/smb-recast-bot/blob/master/server/lib/config/config.js). By default, the server is connected to the configured SAP Business One, version for SAP HANA system.
-<br/>Sample questions of [login-erp](https://cai.tools.sap/yatseali/smb-recast-bot/train/intents/login-erp) intent:
+    * [login-erp intent](https://cai.tools.sap/yatseali/smb-assistant-bot/train/intents/login-erp)
+<br/>Login to different ERP system such as SAP Business One, version for SAP HANA and SAP Business ByDesign, which is configured in [config.js](https://github.com/B1SA/smb-assistant-bot/blob/master/server/lib/config/config.js). By default, the server is connected to the configured SAP Business One, version for SAP HANA system.
+<br/>Sample questions of [login-erp](https://cai.tools.sap/yatseali/smb-assistant-bot/train/intents/login-erp) intent:
         * "Login to b1"
         * "Sign me into byd"
         <br/>.....
-* [smb-recast-bot server](https://github.com/B1SA/smb-recast-bot/tree/master/server) 
-<br/>The webhook action implemented with NodeJS for sales-analysis and login-erp intents. Please check the source code [server](https://github.com/B1SA/smb-recast-bot/tree/master/server)
+* [smb-assistant-bot server](https://github.com/B1SA/smb-assistant-bot/tree/master/server) 
+<br/>The webhook action implemented with NodeJS for sales-analysis and login-erp intents. Please check the source code [server](https://github.com/B1SA/smb-assistant-bot/tree/master/server)
     * Webhook API to be invoked as action in the skill of SAP Conversational AI: 
     <br>/webhook/analytics: a generic webhook for all kind of analytic intent 
         * Call the NLP parser to convert the NLP result(intent/entity) into the data structure(measures, dimensions, filters etc) required by semantic analysis
@@ -84,9 +84,9 @@ Composed of the following components
 
 ### ERP backend
 * SAP Business One, version for SAP HANA: 
-    <br/>Eventually the smb-recast-bot server converts the analytics question in human language into an OData query to the semantic layer through Service Layer. Please refer to this [blog](https://blogs.sap.com/2018/02/01/new-sap-business-one-semantic-layer-view-exposure/) about how to access semantic layer of SAP Business One through Service Layer
+    <br/>Eventually the smb-assistant-bot server converts the analytics question in human language into an OData query to the semantic layer through Service Layer. Please refer to this [blog](https://blogs.sap.com/2018/02/01/new-sap-business-one-semantic-layer-view-exposure/) about how to access semantic layer of SAP Business One through Service Layer
 * SAP Business ByDesign: 
-    <br/>Eventually the smb-recast-bot server converts the analytics question in human language into an OData query to the datasource or report. Please refer to this [blog](https://blogs.sap.com/2015/03/10/odata-for-sap-business-bydesign-analytics/) about OData APIs for SAP Business ByDesign Analytics. 
+    <br/>Eventually the smb-assistant-bot server converts the analytics question in human language into an OData query to the datasource or report. Please refer to this [blog](https://blogs.sap.com/2015/03/10/odata-for-sap-business-bydesign-analytics/) about OData APIs for SAP Business ByDesign Analytics. 
 
 ## Process flow
 Take the following example:
@@ -393,7 +393,7 @@ https://<byd_tenant>.sapbydesign.com/sap/byd/odata/cc_home_analytics.svc/RPZ1E09
 ```
 
 ## How to run and extend this sample project
-Please refer to [this document](https://github.com/B1SA/smb-recast-bot/blob/master/server/README.md).
+Please refer to [this document](https://github.com/B1SA/smb-assistant-bot/blob/master/server/README.md).
 
 ## License:
-This smb-recast-bot probject is subject to [MIT LICENSE](https://github.com/B1SA/smb-recast-bot/LICENSE).Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Therefore no support available. All rights reserved by SAP SE.
+This smb-assistant-bot probject is subject to [APACHE 2.0 LICENSE](LICENSES/Apache-2.0.txt).Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Therefore no support available. All rights reserved by SAP SE.
