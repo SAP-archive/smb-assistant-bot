@@ -7,7 +7,7 @@ This document focuse on:
 Here you [the overview introduction of smb-assistant-bot](https://github.com/B1SA/smb-assistant-bot/) about the scenario, architecture and process flow.
 
 ## How to run this sample smb-assistant-bot?
-Before setting up this sample chatbot project on your own, it is recommended to go through [the overview introduction of smb-assistant-bot](https://github.com/B1SA/smb-assistant-bot/)
+Before setting up this sample chatbot project on your own, it is recommended to go through [the overview introduction of smb-assistant-bot](../README.md)
 
 ### Prerequisites
 * Go through [the overview introduction of smb-assistant-bot](https://github.com/B1SA/smb-assistant-bot/) to understand the scenario, architecture and process flow.
@@ -174,10 +174,10 @@ The webhooks endpoints as below:
   https://xxxxx.ngrok.io/webhooks/login
 
 ### Part 3-Configure the smb-assistant-bot in SAP Conversational AI
-#### Fork the pretrained [smb-assistant-bot](https://recast.ai/yatseali/smb-assistant-bot) to your own account
+#### Fork the pretrained [smb-assistant-bot](https://cai.tools.sap/yatseali/smb-assistant-bot) to your own account
 1. Login to [SAP Conversational AI](https://recast.ai) with browser
 2. Open the pretrained [smb-assistant-bot] (https://cai.tools.sap/yatseali/smb-assistant-bot), then click "Fork" button on right top.
-<br/><a href="https://recast.ai/yatseali/smb-assistant-bot"><img src="https://i.imgur.com/g3q2SCf.png"  alt="fork smb-assistant-bot" width="400" /></a>
+<br/><a href="https://cai.tools.sap/yatseali/smb-assistant-bot"><img src="https://i.imgur.com/g3q2SCf.png"  alt="fork smb-assistant-bot" width="400" /></a>
 <br/>Consequently, the pretrained [smb-assistant-bot] is now forked to your account.
 
 #### Configure the action for the sales-analysis and login-erp intent
@@ -200,9 +200,9 @@ The smb-assistant-bot server also provide a web chat, which can be accessed thro
 ## How to extend the smb-assistant-bot?
 This sample bot can be easily extended to accomodate other analytics question about delivery performance, purchasing, financial etc
 by 
-* adding new intents and utterances for analytics questions in [smb-assistant-bot](https://recast.ai/yatseali/smb-assistant-bot). Please label the entities properly for #DIMENSION, #MEASURE, #FILTERBY, #LIMIT_NUMBER, #SORTING_DIRECTION as sales-analysis intent.
+* adding new intents and utterances for analytics questions in [smb-assistant-bot](https://cai.tools.sap/yatseali/smb-assistant-bot). Please label the entities properly for #DIMENSION, #MEASURE, #FILTERBY, #LIMIT_NUMBER, #SORTING_DIRECTION as sales-analysis intent.
 
-* adding the mapping configuration of intent to semantics for new intent in [intents_mapping](https://github.com/B1SA/smb-assistant-bot/blob/master/server/lib/config/intents_mapping.js)
+* adding the mapping configuration of intent to semantics for new intent in [intents_mapping](lib/config/intents_mapping.js)
 * configuring the same webhook url for the new analytics intent as sales-analysis intent.
 
 ## License:

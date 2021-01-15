@@ -7,7 +7,7 @@ Here you have the video recordings about the PoC demos of smb-assistant-bot.
 * [Sales Analysis demo based SAP Business One](https://youtu.be/mWy4Zu2zYG4)
 * [Sales Analysis demo based SAP Business ByDesign](https://youtu.be/D5ZK3hzDvlI)
 
-In addition, this sample bot can be easily extended to accomodate other analytics question about delivery performance, purchasing, financial etc.Please refer to [this document](https://github.com/B1SA/smb-assistant-bot/blob/master/server/README.md).
+In addition, this sample bot can be easily extended to accomodate other analytics question about delivery performance, purchasing, financial etc.Please refer to [this document](server/README.md).
 
 The transactional scenario such as placing an order, checking the delivery status etc is also possible through SAP Conversational AI(formerly recast.ai), Service Layer of SAP Business One and OData API of SAP Business ByDesign. However, you may refer to [SMB Market Place Assistant Bot](https://github.com/B1SA/smbmkt) for reference, as the transactional scenario is no part of this sample. 
 
@@ -18,7 +18,7 @@ The architecture diagram above illustrate the following components
 * App/Bot: A self-service bot for end users on messing platform such as Facebook Messenger, Line, WhatsApp, WeChat etc, or a chatbot on web, or an application over the voice on a device, such as an Alexa skill.
 * [SAP Conversation AI](#SAP-Conversation-AI): A collaborative end-to-end bot platform for developers.
 * [smb-assistant-bot](#smb-assistant-bot): The webhook action of analytics questions. 
-* [ERP backend](#ERP-backend): In this sample, it supports SAP Business One, version for SAP HANA and SAP Business ByDesign. You can easily extend smb-assistant-bot to support S4HANA etc by adding configuration to [intents_mapping.js](https://github.com/B1SA/smb-assistant-bot/blob/master/server/lib/config/intents_mapping.js) and handle the login in the /webhooks/login and /webhooks/analytics endpoint in [index.js](https://github.com/B1SA/smb-assistant-bot/blob/master/server/index.js).  
+* [ERP backend](#ERP-backend): In this sample, it supports SAP Business One, version for SAP HANA and SAP Business ByDesign. You can easily extend smb-assistant-bot to support S4HANA etc by adding configuration to [intents_mapping.js](server/lib/config/intents_mapping.js) and handle the login in the /webhooks/login and /webhooks/analytics endpoint in [index.js](server/index.js).  
 
 ### [SAP Conversation AI](https://cai.tools.sap/)
 <a href="https://cai.tools.sap/"><img src="https://i.imgur.com/mKxXnBu.png"  alt="recast" width="400" /></a>
@@ -54,8 +54,8 @@ Composed of the following components
         * "Login to b1"
         * "Sign me into byd"
         <br/>.....
-* [smb-assistant-bot server](https://github.com/B1SA/smb-assistant-bot/tree/master/server) 
-<br/>The webhook action implemented with NodeJS for sales-analysis and login-erp intents. Please check the source code [server](https://github.com/B1SA/smb-assistant-bot/tree/master/server)
+* [smb-assistant-bot server](server) 
+<br/>The webhook action implemented with NodeJS for sales-analysis and login-erp intents. Please check the source code [server](server)
     * Webhook API to be invoked as action in the skill of SAP Conversational AI: 
     <br>/webhook/analytics: a generic webhook for all kind of analytic intent 
         * Call the NLP parser to convert the NLP result(intent/entity) into the data structure(measures, dimensions, filters etc) required by semantic analysis
@@ -393,7 +393,7 @@ https://<byd_tenant>.sapbydesign.com/sap/byd/odata/cc_home_analytics.svc/RPZ1E09
 ```
 
 ## How to run and extend this sample project
-Please refer to [this document](https://github.com/B1SA/smb-assistant-bot/blob/master/server/README.md).
+Please refer to [this document](server/README.md).
 
 ## License:
 Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file. Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Therefore no support available.
