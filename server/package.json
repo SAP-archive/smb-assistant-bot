@@ -17,7 +17,7 @@
     "nlp"
   ],
   "author": "Yatsea Li",
-  "license": "MIT",
+  "license": "APACHE 2.0",
   "dependencies": {
     "axios": ">=0.18.1",
     "body-parser": "^1.18.2",

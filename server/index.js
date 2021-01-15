@@ -4,7 +4,7 @@
  * 1.login-erp: Login to SAP Business One or SAP Business ByDesign
  * 2.sales-analysis: Sales analysis questions about product, customers, sales employee, posting year/quarter/month
  * 
- * The source code is under MIT license. Please kindly check the LICENSE.
+ * The source code is under APACHE 2.0 license. Please kindly check the LICENSE.
  * Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED. Therefore no support available.
  * 

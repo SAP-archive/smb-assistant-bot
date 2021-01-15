@@ -18,7 +18,7 @@
  * 2.Adding the mappings between intent and semantic layer into mapping list.
  * as below.
  * 
- * The source code is under MIT license. Please kindly check the LICENSE.
+ * The source code is under APACHE 2.0 license. Please kindly check the LICENSE.
  * Here is to highlight that THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED. Therefore no support available.
  * 
