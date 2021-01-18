@@ -1,3 +1,5 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/smb-assistant-bot)](https://api.reuse.software/info/github.com/SAP-samples/smb-assistant-bot)
+[![License: Apache2](https://img.shields.io/badge/License-Apache2-green.svg)](https://opensource.org/licenses/Apache-2.0)
 # SAP SMB Assistant Bot powered by SAP Conversational AI(recast.ai)
 ## Overview
 This is a sample executive virtual assistant [smb-assistant-bot](https://cai.tools.sap/yatseali/smb-assistant-bot) which can serves the CXOs about the executive-level analytics question through conversation, powered by [SAP Conversational AI](https://cai.tools.sap/)(formerly as recast.ai) for SAP Business One and SAP Business ByDesign systems. Precisely, the sales analysis through conversation is implemented in this sample. 
