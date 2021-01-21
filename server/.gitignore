@@ -60,6 +60,7 @@ typings/
 # next.js build output
 .next
 
+#local files
 ../.DS_Store
 .DS_Store
 lib/.DS_Store
@@ -70,5 +71,5 @@ lib/recast/.DS_Store
 lib/util/.DS_Store
 web/.DS_Store
 test/.DS_Store
-
 cf_setenv.sh
+local_setenv.sh
