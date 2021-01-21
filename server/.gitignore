@@ -72,4 +72,4 @@ lib/util/.DS_Store
 web/.DS_Store
 test/.DS_Store
 cf_setenv.sh
-local_setenv.sh
+local_setenv_macOS.sh
